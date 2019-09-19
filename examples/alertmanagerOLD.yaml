@@ -1,0 +1,32 @@
+global:
+  resolve_timeout: 5m
+route:
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 12h
+  receiver: default
+  routes:
+  - match:
+      alertname: DeadMansSwitch
+    repeat_interval: 5m
+    receiver: deadmansswitch
+receivers:
+- name: default
+- name: deadmansswitch
+receivers:
+- name: beopenitmailappli
+  email_configs:
+  - to: 'maimouna.diagne@beopenit.com'
+    from: 'alertmeviaprom@gmail.com'
+    smarthost: 'smtp.gmail.com:587'
+    auth_username: 'alertmeviaprom@gmail.com'
+    auth_password: 'xxxxxx'
+routes:
+  - match:
+      alertname: EtcdInsufficientMembers
+    repeat_interval: 5m
+    receiver: beopenitmailadmin
+  - match:
+      alertname: KubePodCrashLooping
+    repeat_interval: 5m
+    receiver: beopenitmailadmin

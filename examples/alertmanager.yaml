@@ -1,0 +1,33 @@
+global:
+  resolve_timeout: 5m
+route:
+  group_wait: 30s
+  group_interval: 1m
+  repeat_interval: 12h
+  receiver: beopenitmailappli
+  routes:
+  - match:
+      alertname: DeadMansSwitch
+    repeat_interval: 1d
+    receiver: beopenitmailappli
+  - match:
+      alertname: CrashLoopBackOff
+    repeat_interval: 5m
+    receiver: beopenitmailappli
+  - match:
+      alertname: TargetDown
+    repeat_interval: 1m
+    receiver: beopenitmailappli
+receivers:
+- name: beopenitmailappli
+  email_configs:
+  - to: 'diagne.maimouna15@gmail.com'
+    from: 'alertmeviaprom@gmail.com'
+    smarthost: 'smtp.gmail.com:587'
+    auth_username: 'alertmeviaprom@gmail.com'
+    auth_password: 'xxxxxx'
+  - to: 'maimounadiagne91@hotmail.fr'
+    from: 'alertmeviaprom@gmail.com'
+    smarthost: 'smtp.gmail.com:587'
+    auth_username: 'alertmeviaprom@gmail.com'
+    auth_password: 'xxxxxx'

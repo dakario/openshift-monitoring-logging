@@ -21,13 +21,13 @@ route:
 receivers:
 - name: beopenitmailappli
   email_configs:
-  - to: 'diagne.maimouna15@gmail.com'
-    from: 'alertmeviaprom@gmail.com'
+  - to: 'xxxxxxxxxxxxxxx@gmail.com'
+    from: 'xxxxxxxxxxxxxx@gmail.com'
     smarthost: 'smtp.gmail.com:587'
-    auth_username: 'alertmeviaprom@gmail.com'
+    auth_username: 'xxxxxxxxx@gmail.com'
     auth_password: 'xxxxxx'
-  - to: 'maimounadiagne91@hotmail.fr'
-    from: 'alertmeviaprom@gmail.com'
+  - to: 'xxxxxxxxxxx@hotmail.fr'
+    from: 'xxxxxxxxxxx@gmail.com'
     smarthost: 'smtp.gmail.com:587'
-    auth_username: 'alertmeviaprom@gmail.com'
+    auth_username: 'xxxxxxxxxx@gmail.com'
     auth_password: 'xxxxxx'
